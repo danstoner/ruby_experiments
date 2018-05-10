@@ -1,8 +1,6 @@
 require 'set'
 input_lines = $stdin.read.split("\n")
 
-#puts input_lines
-
 dictionary = Hash.new
 
 dictionary_size = input_lines[0].to_i
@@ -10,7 +8,6 @@ dictionary_size = input_lines[0].to_i
 1.upto(dictionary_size) {|i|
   sorted = input_lines[i].chars.sort.join
   dictionary[sorted] = Set[].add(input_lines[i])
-
 }
 
 wordlist = input_lines[dictionary_size+1, input_lines.length]
@@ -33,10 +30,7 @@ wordlist.each { |word|
     end
   }
 
-
   stuff_and_sorted = [word].concat(out_array.sort)
-
-#  out_line =  ([word] << sorted).join(" ")
 
   puts stuff_and_sorted.join(" ")
 
