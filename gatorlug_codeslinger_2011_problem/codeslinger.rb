@@ -25,21 +25,19 @@ wordlist = input_lines[dictionary_size+1, input_lines.length]
 }
 
 wordlist.each { |word| 
-  sorted = word.chars.sort.join
-  out_set = dictionary[sorted]
-
   out_array = Array.new
 
-  out_set.each {|w|
+  dictionary[word.chars.sort.join].each {|w|
     if w != word 
       out_array.push(w)
     end
   }
 
-  sorted = out_array.sort
 
-  out_line =  ([word] << sorted).join(" ")
+  stuff_and_sorted = [word].concat(out_array.sort)
 
-  puts out_line
+#  out_line =  ([word] << sorted).join(" ")
+
+  puts stuff_and_sorted.join(" ")
 
 }
